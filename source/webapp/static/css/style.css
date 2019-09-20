@@ -1,0 +1,28 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: lightgrey;
+}
+.navbar{
+    margin-bottom: 35px;
+}
+.form-error {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0 0 0
+}
+
+.field-error {
+    border: solid 1px red;
+    box-shadow: red 0 0 3px;
+
+}
+.form-text{
+    margin-top: 20px;
+}
+span{
+    color: red;
+    font-weight: 600;
+}
+.btn.btn-success{
+    width: 410px;
+}
