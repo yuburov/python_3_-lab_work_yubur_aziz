@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h2 class="card-text card-link">
-                           {{ product.name }}
+                            <a href="{% url 'product_view' product.pk %}">{{ product.name }}</a>
                         </h2>
                         <p class="card-text">{{ product.get_category_display }}</p>
                         <p class="card-text text-right">{{ product.price }} сом</p>
