@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Add new product</h1>
+    <h1>Добавить новый продукт</h1>
     <form action="{% url 'product_create' %}" method="post">
         {% csrf_token %}
-        {% include 'partial/product_form.html' with button_text="Create" %}
+        {% include 'partial/product_form.html' with button_text="Добавить" %}
     </form>
 {% endblock %}

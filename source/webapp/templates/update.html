@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Изменить
+{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'product_view' task.pk %}">View</a></li>
+{#    <li><a href="{% url 'delete_view' task.pk %}">Delete</a></li>#}
+{% endblock %}
+
+{% block content %}
+    <h1>Изменить продукт</h1>
+    <form action="{% url 'product_create' %}" method="post">
+        {% include 'partial/product_form.html' with button_text='Обновить' %}
+    </form>
+{% endblock %}
