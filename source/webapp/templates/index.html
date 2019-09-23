@@ -14,7 +14,8 @@
                         <h2 class="card-text card-link">
                             <a href="{% url 'product_view' product.pk %}">{{ product.name }}</a>
                         </h2>
-                        <p class="card-text">{{ product.get_category_display }}</p>
+                        <p class="card-text">{{ product.get_category_display }} <a class="icon mr-2" href="{% url 'update_view' product.pk %}"><i
+                                class="fas fa-edit"></i></a><a class="icon mr-2" href=""><i class="fas fa-trash-alt"></i></a></p>
                         <p class="card-text text-right">{{ product.price }} сом</p>
                     </div>
                 </div>
