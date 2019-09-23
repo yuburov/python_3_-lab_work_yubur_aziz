@@ -8,12 +8,14 @@
     <li class="nav-item">
         <a href="{% url 'product_view' product.pk %}" class="nav-link">Подробнее</a>
     </li>
-    {#    <li><a href="{% url 'delete_view' task.pk %}">Delete</a></li>#}
+    <li class="nav-item">
+        <a href="{% url 'delete_view' product.pk %}" class="nav-link">Удалить</a>
+    </li>
 {% endblock %}
 
 {% block content %}
     <h1>Изменить продукт</h1>
-    <form action="{% url 'product_create' %}" method="post">
+    <form action="{% url 'update_view' product.pk %}" method="post">
         {% include 'partial/product_form.html' with button_text='Обновить' %}
     </form>
 {% endblock %}

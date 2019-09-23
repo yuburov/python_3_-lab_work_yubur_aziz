@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Удаление{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-3 pb-3">Вы уверены, что хотите удалить продукт - {{ product }}?</h1>
+    <form method="POST"  class="text-center" action="{% url 'delete_view' product.pk %}">
+        {% csrf_token %}
+        <p><input type="submit" class="del btn btn-dark" value="Да"></p>
+        <p><a href="{% url 'index' %}" class="del btn btn-dark">Нет</a></p>
+    </form>
+{% endblock %}

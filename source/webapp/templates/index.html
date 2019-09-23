@@ -3,6 +3,12 @@
     <li class="nav-item">
         <a href="{% url 'product_create' %}" class="nav-link">Добавить</a>
     </li>
+    <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0" action="{% url 'search_product' %}" method="GET" name="search">
+            <input class="form-control mr-sm-2 ml-3" type="text" placeholder="Search" name="search">
+            <input type="submit" value="Search" class="btn btn-outline-success my-2 my-sm-0">
+        </form>
+    </li>
 {% endblock %}
 {% block content %}
     <h1 class="mt-3">Доброй пожаловать в наш магазин, дорогой наш гость!</h1>
@@ -15,7 +21,7 @@
                             <a href="{% url 'product_view' product.pk %}">{{ product.name }}</a>
                         </h2>
                         <p class="card-text">{{ product.get_category_display }} <a class="icon mr-2" href="{% url 'update_view' product.pk %}"><i
-                                class="fas fa-edit"></i></a><a class="icon mr-2" href=""><i class="fas fa-trash-alt"></i></a></p>
+                                class="fas fa-edit"></i></a><a class="icon mr-2" href="{% url 'delete_view' product.pk %}"><i class="fas fa-trash-alt"></i></a></p>
                         <p class="card-text text-right">{{ product.price }} сом</p>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ def product_create_view(request):
                 description = form.cleaned_data['description'],
                 category = form.cleaned_data['category'], amount = form.cleaned_data['amount'],
                 price = form.cleaned_data['price'])
-                return redirect('task_view', pk=product.pk)
+                return redirect('product_view', pk=product.pk)
 
             else:
                 return render(request, 'create.html', context={'category_choices': CATEGORY_CHOICES, 'form': form})
@@ -59,10 +59,18 @@ def product_update_view(request, pk):
         else:
             return render(request, 'update.html', context={'form': form, 'product': product, 'category_choices': CATEGORY_CHOICES})
 
-# def task_delete_view(request, pk):
-#     product = get_object_or_404(Product, pk=pk)
-#     if request.method == 'GET':
-#         return render(request, 'delete.html', context={'product': product})
-#     elif request.method == 'POST':
-#         product.delete()
-#         return  redirect('index')
+
+def product_delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'delete.html', context={'product': product})
+    elif request.method == 'POST':
+        product.delete()
+        return  redirect('index')
+
+def search_product(request):
+    list=request.GET.get('search')
+    products= Product.objects.filter(name__contains=list)
+    return render(request, 'index.html', context={
+    'products': products
+    })
